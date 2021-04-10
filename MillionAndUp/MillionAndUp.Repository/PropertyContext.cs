@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MilionAndUp.Api.Property.Models;
+using MilionAndUp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace MilionAndUp.Api.Property.Repository
+namespace MillionAndUp.Repository
 {
     public class PropertyContext : DbContext
     {
@@ -15,7 +16,7 @@ namespace MilionAndUp.Api.Property.Repository
         }
 
         public DbSet<Owner> Owner { get; set; }
-        public DbSet<Property.Models.Property> Property { get; set; }
+        public DbSet<Property> Property { get; set; }
         public DbSet<PropertyImage> PropertyImage { get; set; }
         public DbSet<PropertyTrace> PropertyTrace { get; set; }
     }

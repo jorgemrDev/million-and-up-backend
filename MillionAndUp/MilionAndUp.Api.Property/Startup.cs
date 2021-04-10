@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MillionAndUp.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,9 @@ namespace MilionAndUp.Api.Property
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddDbContext<PropertyContext>(options =>
+            options.UseSqlServer(
+                Configuration.GetConnectionString("MillionAndUpConnection")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
