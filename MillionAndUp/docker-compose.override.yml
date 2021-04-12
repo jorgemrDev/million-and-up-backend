@@ -22,3 +22,10 @@ services:
     ports:
       - "6107:80"
 
+
+  millionandup.authserver:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "6108:80"
+

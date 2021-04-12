@@ -32,6 +32,15 @@ namespace MillionAndUp.Api.Gateway
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.WithOrigins("*")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+            });
+
             var audienceConfig = Configuration.GetSection("Audience");
 
             var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(audienceConfig["Secret"]));

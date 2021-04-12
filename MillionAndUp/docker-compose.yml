@@ -19,8 +19,15 @@ services:
       context: .
       dockerfile: ../MillionAndUp.Api.Gateway/Dockerfile
 
+  millionandup.authserver:
+    image: ${DOCKER_REGISTRY-}millionandupauthserver
+    build:
+      context: .
+      dockerfile: MillionAndUp.AuthServer/Dockerfile
+
 networks:
   default:
     external:
       name: microservicesproperty
+
 

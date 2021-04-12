@@ -37,6 +37,13 @@ namespace MilionAndUp.Api.Property
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.WithOrigins("*")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+            });
             var audienceConfig = Configuration.GetSection("Audience");
 
             var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(audienceConfig["Secret"]));
@@ -106,13 +113,7 @@ namespace MilionAndUp.Api.Property
             services.AddScoped<IPropertyService, PropertyService>();
             services.AddScoped<IPropertyRepository, PropertyRepository>();
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder.WithOrigins("*")
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
-            });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
