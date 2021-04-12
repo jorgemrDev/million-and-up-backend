@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MilionAndUp.Models;
 using MillionAndUp.Api.PropertyImages.Services.Interfaces;
@@ -29,6 +30,7 @@ namespace MillionAndUp.Api.PropertyImages.Controllers
         }
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = "TestKey")]
         public async Task<ActionResult<PropertyImage>> UploadImage(IFormFile file, Guid propertyId)
         {
            var fileName = await WriteFile(file);

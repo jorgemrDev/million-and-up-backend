@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MillionAndUp.Models.Dtos;
@@ -23,6 +25,7 @@ namespace MilionAndUp.Api.Property.Controllers
 
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes ="TestKey")]
         public async Task<ActionResult<Models.Property>> Create(PropertyDto property)
         {
             return await _propertyService.CreateProperty(property);
@@ -37,12 +40,14 @@ namespace MilionAndUp.Api.Property.Controllers
         }
 
         [HttpPut]
+        [Authorize(AuthenticationSchemes = "TestKey")]
         public async Task<ActionResult<bool>> UpdatePrice(UpdatePriceDto priceDto)
         {
             return await _propertyService.UpdatePrice(priceDto);
         }
 
         [HttpPut("update")]
+        [Authorize(AuthenticationSchemes = "TestKey")]
         public async Task<ActionResult<Models.Property>> UpdateProperty(PropertyDto propertyDto)
         {
             return await _propertyService.UpdateProperty(propertyDto);

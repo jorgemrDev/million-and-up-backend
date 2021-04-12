@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MillionAndUp.Models", "Mill
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{68911AAA-ACC0-4A02-A1B6-379BB1B750CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.Api.PropertyImages", "..\MillionAndUp.Api.PropertyImages\MillionAndUp.Api.PropertyImages.csproj", "{53AEA9A7-2FF1-4999-AB70-E6B0FD6F08FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MillionAndUp.Api.PropertyImages", "..\MillionAndUp.Api.PropertyImages\MillionAndUp.Api.PropertyImages.csproj", "{53AEA9A7-2FF1-4999-AB70-E6B0FD6F08FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.Api.Gateway", "..\MillionAndUp.Api.Gateway\MillionAndUp.Api.Gateway.csproj", "{6067C772-594C-45B3-98E0-4331C715CBAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MillionAndUp.Api.Gateway", "..\MillionAndUp.Api.Gateway\MillionAndUp.Api.Gateway.csproj", "{6067C772-594C-45B3-98E0-4331C715CBAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.AuthServer", "MillionAndUp.AuthServer\MillionAndUp.AuthServer.csproj", "{2500EE2C-9793-4D16-9380-30BEB9AA3239}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{6067C772-594C-45B3-98E0-4331C715CBAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6067C772-594C-45B3-98E0-4331C715CBAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6067C772-594C-45B3-98E0-4331C715CBAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2500EE2C-9793-4D16-9380-30BEB9AA3239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2500EE2C-9793-4D16-9380-30BEB9AA3239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2500EE2C-9793-4D16-9380-30BEB9AA3239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2500EE2C-9793-4D16-9380-30BEB9AA3239}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
