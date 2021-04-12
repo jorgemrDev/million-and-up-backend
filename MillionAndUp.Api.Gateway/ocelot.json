@@ -11,6 +11,10 @@
       ],
       "UpStreamPathTemplate": "/Property",
       "UpStreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      },
       "Key": "PropertyComplete",
       "DelegatingHandlers": [
         "PropertyImageHandler"
