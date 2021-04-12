@@ -21,6 +21,7 @@ namespace MillionAndUp.AuthServer.Controllers
         }
 
         [HttpGet]
+        ///Method to generate the JWT to authenticate
         public ActionResult<AccessToken> Get(string name, string pwd)
         {
             //user and pass harcoded, here will be a validation with real users

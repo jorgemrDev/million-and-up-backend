@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MillionAndUp.Api.Gateway", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.AuthServer", "MillionAndUp.AuthServer\MillionAndUp.AuthServer.csproj", "{2500EE2C-9793-4D16-9380-30BEB9AA3239}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.UnitTests", "MillionAndUp.UnitTests\MillionAndUp.UnitTests.csproj", "{FCEEB346-9905-4248-8E6D-C3E6FF9E98EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{2500EE2C-9793-4D16-9380-30BEB9AA3239}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2500EE2C-9793-4D16-9380-30BEB9AA3239}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2500EE2C-9793-4D16-9380-30BEB9AA3239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCEEB346-9905-4248-8E6D-C3E6FF9E98EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCEEB346-9905-4248-8E6D-C3E6FF9E98EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCEEB346-9905-4248-8E6D-C3E6FF9E98EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCEEB346-9905-4248-8E6D-C3E6FF9E98EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
