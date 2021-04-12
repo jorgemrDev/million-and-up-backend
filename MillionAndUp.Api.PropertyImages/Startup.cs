@@ -4,21 +4,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using MillionAndUp;
-using MillionAndUp.Repository;
-using MillionAndUp.Repository.Implementations;
-using MillionAndUp.Repository.Interfaces;
-using MillionAndUp.Services.Implementations;
-using MillionAndUp.Services.Interfaces;
+using MillionAndUp.Api.PropertyImages.Context;
+using MillionAndUp.Api.PropertyImages.Repository.Implementations;
+using MillionAndUp.Api.PropertyImages.Repository.Interfaces;
+using MillionAndUp.Api.PropertyImages.Services.Implementations;
+using MillionAndUp.Api.PropertyImages.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MilionAndUp.Api.Property
+namespace MillionAndUp.Api.PropertyImages
 {
     public class Startup
     {
@@ -38,19 +39,11 @@ namespace MilionAndUp.Api.Property
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MilionAndUp.Api.Property", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MillionAndUp.Api.PropertyImages", Version = "v1" });
             });
 
-            services.AddScoped<IPropertyService, PropertyService>();
-            services.AddScoped<IPropertyRepository, PropertyRepository>();
-
-            services.AddCors(options =>
-            {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder.WithOrigins("*")
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
-            });
+            services.AddScoped<IPropertyImageService, PropertyImageService>();
+            services.AddScoped<IPropertyImageRepository, PropertyImageRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,13 +53,18 @@ namespace MilionAndUp.Api.Property
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MilionAndUp.Api.Property v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MillionAndUp.Api.PropertyImages v1"));
             }
 
             app.UseRouting();
-
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+            Path.Combine(env.ContentRootPath, "images")),
+                RequestPath = "/StaticFiles"
+            });
             app.UseAuthorization();
-            app.UseCors();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

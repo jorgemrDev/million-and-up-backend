@@ -12,7 +12,7 @@ namespace MilionAndUp.Models
         public string Address { get; set; }
         public string Photo { get; set; }
         public DateTime Birthday { get; set; }
-        public int PropertyId { get; set; }
+        public Guid PropertyId { get; set; }
         public Property Property { get; set; }
     }
 }

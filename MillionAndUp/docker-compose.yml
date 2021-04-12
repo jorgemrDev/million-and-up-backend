@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  milionandup.api.property:
+    image: ${DOCKER_REGISTRY-}milionandupapiproperty
+    build:
+      context: .
+      dockerfile: MilionAndUp.Api.Property/Dockerfile
+
+  millionandup.api.propertyimages:
+    image: ${DOCKER_REGISTRY-}millionandupapipropertyimages
+    build:
+      context: .
+      dockerfile: ../MillionAndUp.Api.PropertyImages/Dockerfile
+
+  millionandup.api.gateway:
+    image: ${DOCKER_REGISTRY-}millionandupapigateway
+    build:
+      context: .
+      dockerfile: ../MillionAndUp.Api.Gateway/Dockerfile
+
+networks:
+  default:
+    external:
+      name: microservicesproperty
+

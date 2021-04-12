@@ -10,7 +10,11 @@ namespace MillionAndUp.Repository.Interfaces
 {
     public interface IPropertyRepository
     {
-        Task<Property> CreateProduct(PropertyDto property);
+        Task<Property> CreateProperty(PropertyDto property);
+        Task<bool> UpdatePrice(UpdatePriceDto priceDto);
+        Task<Property> UpdateProperty(PropertyDto propertyDto);
+
+        Task<SearchResult> SearchProperties(SearchParameters parameters);
 
     }
 }

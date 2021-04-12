@@ -13,5 +13,6 @@ namespace MillionAndUp.Models.Dtos
         public float Price { get; set; }
         public int CodeInternal { get; set; }
         public int Year { get; set; }
+        public Guid PropertyId { get; set; }
     }
 }

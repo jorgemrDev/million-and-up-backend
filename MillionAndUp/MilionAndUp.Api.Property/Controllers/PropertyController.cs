@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MillionAndUp.Models.Dtos;
+using MillionAndUp.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,21 +14,38 @@ namespace MilionAndUp.Api.Property.Controllers
     [ApiController]
     public class PropertyController : ControllerBase
     {
-        //private string UploadedFile(EmployeeViewModel model)
-        //{
-        //    string uniqueFileName = null;
+        private readonly IPropertyService _propertyService;
 
-        //    if (model.ProfileImage != null)
-        //    {
-        //        string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "images");
-        //        uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ProfileImage.FileName;
-        //        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-        //        using (var fileStream = new FileStream(filePath, FileMode.Create))
-        //        {
-        //            model.ProfileImage.CopyTo(fileStream);
-        //        }
-        //    }
-        //    return uniqueFileName;
-        //}
+        public PropertyController(IPropertyService propertyService)
+        {
+            _propertyService = propertyService;
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult<Models.Property>> Create(PropertyDto property)
+        {
+            return await _propertyService.CreateProperty(property);
+
+        }
+
+        [EnableCors("CorsPolicy")]
+        [HttpGet]
+        public async Task<ActionResult<SearchResult>> GetProperties([FromQuery] SearchParameters parameters)
+        {
+           return await _propertyService.SearchProperties(parameters);            
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<bool>> UpdatePrice(UpdatePriceDto priceDto)
+        {
+            return await _propertyService.UpdatePrice(priceDto);
+        }
+
+        [HttpPut("update")]
+        public async Task<ActionResult<Models.Property>> UpdateProperty(PropertyDto propertyDto)
+        {
+            return await _propertyService.UpdateProperty(propertyDto);
+        }        
     }
 }

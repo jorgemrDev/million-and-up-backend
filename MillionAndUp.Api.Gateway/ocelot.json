@@ -1,0 +1,45 @@
+{
+  "Routes": [
+    {
+      "DownStreamPathTemplate": "/api/Property",
+      "DownStreamScheme": "http",
+      "DownStreamHostAndPorts": [
+        {
+          "Host": "milionandup.api.property",
+          "Port": "80"
+        }
+      ],
+      "UpStreamPathTemplate": "/Property",
+      "UpStreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "Key": "PropertyComplete",
+      "DelegatingHandlers": [
+        "PropertyImageHandler"
+      ]
+    },
+    {
+      "DownStreamPathTemplate": "/api/PropertyImage",
+      "DownStreamScheme": "http",
+      "DownStreamHostAndPorts": [
+        {
+          "Host": "millionandup.api.propertyimages",
+          "Port": "80"
+        }
+      ],
+      "UpStreamPathTemplate": "/PropertyImage",
+      "UpStreamHttpMethod": [ "GET", "POST" ],
+      "Key": "AuthorTotal"
+    },
+    {
+      "DownStreamPathTemplate": "/api/PropertyImage/{id}",
+      "DownStreamScheme": "http",
+      "DownStreamHostAndPorts": [
+        {
+          "Host": "millionandup.api.propertyimages",
+          "Port": "80"
+        }
+      ],
+      "UpStreamPathTemplate": "/PropertyImage/{id}",
+      "UpStreamHttpMethod": [ "GET", "DELETE" ]
+    }
+  ]
+}

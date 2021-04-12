@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:42381",
+      "applicationUrl": "http://localhost:52711",
       "sslPort": 0
     }
   },
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "MilionAndUp.Api.Property": {
+    "MillionAndUp.Api.PropertyImages": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
@@ -27,7 +27,7 @@
       "dotnetRunMessages": "true",
       "applicationUrl": "http://localhost:5000"
     },
-    "Docker": {
+    "Docker (1)": {
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
