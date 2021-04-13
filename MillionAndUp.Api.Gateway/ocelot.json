@@ -31,6 +31,10 @@
       ],
       "UpStreamPathTemplate": "/PropertyImage",
       "UpStreamHttpMethod": [ "GET", "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      },
       "Key": "AuthorTotal"
     },
     {

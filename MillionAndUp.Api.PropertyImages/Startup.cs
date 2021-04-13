@@ -121,6 +121,7 @@ namespace MillionAndUp.Api.PropertyImages
             Path.Combine(env.ContentRootPath, "images")),
                 RequestPath = "/StaticFiles"
             });
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
